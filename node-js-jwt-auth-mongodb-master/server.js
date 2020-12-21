@@ -9,7 +9,7 @@ const app = express();
 //CORS - Cross-Origin Resource Sharing
 var corsOptions = {
     //origin: "http://localhost:8081"
-    origin: "https://toursjr.herokuapp.com"
+    origin: "https://toursjr.herokuapp.com/api/*"
 };
 
 app.use(express.static(path));
