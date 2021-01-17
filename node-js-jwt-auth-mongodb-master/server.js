@@ -13,16 +13,7 @@ var corsOptions = {
 };
 
 app.use(express.static(path));
-//app.use(cors(corsOptions));
-let ALLOWED_ORIGINS = ["http://toursjr.herokuapp.com", "https://toursjr.herokuapp.com"];
-app.use((req, res, next) => {
-    let origin = req.headers.origin;
-    let theOrigin = (ALLOWED_ORIGINS.indexOf(origin) >= 0) ? origin : ALLOWED_ORIGINS[0];
-    res.header("Access-Control-Allow-Origin", theOrigin);
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-
-    next();
-})
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
